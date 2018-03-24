@@ -1,0 +1,17 @@
+<div layout="column" layout-fill>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2 md-truncate flex><a href="/">Customers</a></h2>
+      <md-button class="md-accent" ng-click=customers.showList()>
+        All customers
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-content>
+    <ui-view></ui-view>
+    <md-button class="md-fab add-fab" ng-click="customers.add()">
+      <md-tooltip md-direction="left">Add new customer</md-tooltip>
+      <md-icon>add</md-icon>
+    </md-button>
+  </md-content>
+</div>

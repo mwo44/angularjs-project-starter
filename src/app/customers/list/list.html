@@ -1,0 +1,36 @@
+<md-list>
+  <md-list-item layout="row" ng-repeat="customer in list.customers track by customer.id | orderBy: 'name'">
+    <article class="customer-row">
+      <div class="avatar">
+        <md-icon class="icon md-accent">person</md-icon>
+      </div>
+      <div class="md-list-item-text">{{customer.name}}</div>
+      <div class="md-list-item-text">{{customer.company}}</div>
+      <div class="md-list-item-text">{{customer.email}}</div>
+      <div class="md-list-item-text">{{customer.phone}}</div>
+      <div class="md-list-item-text customer-date">{{customer.date}}</div>
+    </article>
+    <md-menu class="md-secondary">
+      <md-button class="md-icon-button">
+        <md-tooltip md-direction="left">Click to show menu</md-tooltip>
+        <md-icon>menu</md-icon>
+      </md-button>
+      <md-menu-content width="7">
+        <md-menu-item>
+          <md-button class="md-accent" ng-click="list.edit(customer)">
+            <md-icon>edit</md-icon>
+            Edit
+          </md-button>
+        </md-menu-item>
+        <md-menu-divider></md-menu-divider>
+        <md-menu-item>
+          <md-button class="md-warn" ng-click="list.delete(customer.id)">
+            <md-icon>delete</md-icon>
+            Delete
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+    <md-divider ng-if="!$last"></md-divider>
+  </md-list-item>
+</md-list>

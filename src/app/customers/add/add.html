@@ -1,0 +1,66 @@
+<md-card class="add-card">
+  <md-card-header>
+    <md-card-header-text>
+      <h1 layout="row" layout-align="center center">Add customer</h1>
+    </md-card-header-text>
+  </md-card-header>
+  <md-card-content>
+    <form ng-submit="add.add()">
+      <div layout="row" layout-align="center center">
+
+        <md-input-container flex ng-class="{'md-input-invalid' : add.name.length === 0 && !add.checkPristine()}">
+          <label>Name</label>
+          <input  type="text"
+                  id="customer_name"
+                  ng-model="add.name">
+          <div class="md-warn" ng-if="add.name.length === 0 && !add.checkPristine()">Type customer's name</div> 
+        </md-input-container>
+      </div>
+
+      <div layout="row" layout-align="center center">
+        <md-input-container flex ng-class="{'md-input-invalid' : add.company.length === 0 && !add.checkPristine()}">
+          <label>Company</label>
+          <input  type="text"
+                  id="customer_company"
+                  ng-model="add.company">
+          <div class="md-warn" ng-if="add.company.length === 0 && !add.checkPristine()">Type customer's company</div> 
+        </md-input-container>
+      </div>
+
+      <div layout="row" layout-align="center center">
+          <md-input-container flex ng-class="{'md-input-invalid' : add.email.length === 0 && !add.checkPristine()}">
+            <label>Email</label>
+            <input  type="text"
+                    id="customer_email"
+                    ng-model="add.email">
+            <div class="md-warn" ng-if="add.email.length === 0 && !add.checkPristine()">Type customer's email</div> 
+          </md-input-container>
+        </div>
+
+      <div layout="row" layout-align="center center">
+        <md-input-container flex ng-class="{'md-input-invalid' : add.phoneInvalid}">
+          <label>Phone</label>
+          <input  type="tel"
+                  ng-model="add.phone"
+                  id="customer_phone"
+                  ng-change="add.validatePhone()">
+          <div class="md-warn" ng-if="add.phoneInvalid">Type correct phone number</div>
+        </md-input-container>
+      </div>
+      <div layout="row" layout-align="center center">
+        <md-button  type="submit"
+                    class="md-primary"
+                    ng-disabled="add.name.length === 0 || add.phoneInvalid"
+                    ng-click="add.add()">
+          add customer
+        </md-button>
+        <md-button type="reset" class="md-accent">
+          clear
+        </md-button>
+        <md-button type="reset" class="md-warn" ng-click="add.back()">
+          go back
+        </md-button>
+      </div>
+    </form>
+  </md-card-content>
+</md-card>

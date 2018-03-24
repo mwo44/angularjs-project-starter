@@ -1,0 +1,11 @@
+.customer-row {
+    display: grid;
+    width: 80%;
+    grid-template-columns: 5% 20% 25% 20% 25% 5%; 
+}
+.customer-date {
+    white-space: nowrap;
+}
+md-menu-content {
+    background: #fff;
+}

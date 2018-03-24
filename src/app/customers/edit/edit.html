@@ -1,0 +1,73 @@
+<md-card class="edit-card">
+  <md-card-header>
+    <md-card-header-text>
+      <h1 layout="row" layout-align="center center">edit customer</h1>
+    </md-card-header-text>
+  </md-card-header>
+  <md-card-content>
+    <form ng-submit="edit.edit()">
+      
+      <div layout="row" layout-align="center center">
+        <md-input-container flex ng-class="{'md-input-invalid' : edit.name.length === 0}">
+          <label>Name</label>
+          <input  type="text"                  
+                  ng-model="edit.name">          
+          <div class="md-warn" ng-if="edit.name.length === 0">Type customer's name</div>
+        </md-input-container>
+      </div>
+      
+      <div layout="row" layout-align="center center">
+          <md-input-container flex ng-class="{'md-input-invalid' : edit.company.length === 0}">
+            <label>Company</label>
+            <input  type="text"                  
+                    ng-model="edit.company">          
+            <div class="md-warn" ng-if="edit.company.length === 0">Type customer's company</div>
+          </md-input-container>
+        </div>
+
+      
+        <div layout="row" layout-align="center center">
+            <md-input-container flex ng-class="{'md-input-invalid' : edit.email.length === 0}">
+              <label>Email</label>
+              <input  type="text"                  
+                      ng-model="edit.email">          
+              <div class="md-warn" ng-if="edit.email.length === 0">Type customer's email</div>
+            </md-input-container>
+          </div>
+      
+      
+          <div layout="row" layout-align="center center">
+              <md-input-container flex ng-class="{'md-input-invalid' : edit.date.length === 0}">
+                <label>Date</label>
+                <input  type="text"                  
+                        ng-model="edit.date" disabled>
+              </md-input-container>
+            </div>
+
+      <div layout="row" layout-align="center center">
+        <md-input-container flex ng-class="{'md-input-invalid' : edit.phoneInvalid}">
+          <label>Phone</label>
+          <input  type="tel"
+                  ng-model="edit.phone"                  
+                  ng-change="edit.validatePhone()">
+          <div class="md-warn" ng-if="edit.phoneInvalid">Type correct phone number</div>
+        </md-input-container>
+      </div>
+      
+      <div layout="row" layout-align="center center">
+        <md-button  type="submit"
+                    class="md-primary"
+                    ng-disabled="edit.name.length === 0 || edit.phoneInvalid"
+                    ng-click="edit.edit()">
+          edit customer
+        </md-button>
+        <md-button class="md-accent" ng-click="edit.reset()">
+          reset
+        </md-button>
+        <md-button type="reset" class="md-warn" ng-click="edit.back()">
+          go back
+        </md-button>
+      </div>
+    </form>
+  </md-card-content>
+</md-card>
